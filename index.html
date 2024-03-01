@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Bobur Makhammatov">
+    <meta name="description" content="Registration Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="icon" href="google-logo-24.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <main>
+            <section>
+                <h1>Registration Page</h1>
+
+                <form action="https://example.com/submit" method="post" onsubmit="return validateForm()">
+                    <fieldset>
+                        <legend>Send the Information</legend>
+                        <p>
+                            <label for="name">First Name:</label>
+                            <input type="text" name="name" id="name" placeholder="Your first name" required>
+                        </p>
+                        <p>
+                            <label for="surname">Last Name:</label>
+                            <input type="text" name="surname" id="surname" placeholder="Your last name" required>
+                        </p>
+                        <p>
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" id="email" placeholder="example@gmail.com" required>
+                        </p>
+                        <p>
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" placeholder="Password" required>
+                        </p>
+                        <p>
+                            <label for="confirm-password">Confirm Password:</label>
+                            <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm password" required>
+                            <span id="password-error" style="color: red;"></span>
+                        </p>
+                    </fieldset>
+                    <button type="submit">Send</button>
+                    <button type="reset">Reset</button>
+                </form>
+            </section>
+        </main>
+    </header>
+
+    <script>
+        function validateForm() {
+            var passwordField = document.getElementById("password");
+            var confirmPasswordField = document.getElementById("confirm-password");
+            var passwordError = document.getElementById("password-error");
+
+            var password = passwordField.value;
+            var confirmPassword = confirmPasswordField.value;
+
+            if (password !== confirmPassword) {
+                passwordError.textContent = "Passwords do not match";
+                return false;
+            } else {
+                passwordError.textContent = "";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
